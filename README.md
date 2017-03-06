@@ -22,7 +22,14 @@ As a bank client
 To see the history of my transactions
 I want a printed statement showing the credit, debit and balance for each day.
 ```
+## Domain Model
 
+Client         Account            Transaction
+
+  ----deposit--->     -----create credit---->
+
+  ----deposit--->     -----create debit---->
+  
 ### Acceptance Criteria
 
 Producing a bank statement for a bank client, like below:
