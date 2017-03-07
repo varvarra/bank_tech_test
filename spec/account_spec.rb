@@ -16,13 +16,33 @@ describe Account do
 
   describe "#deposit" do
 
-    it "stores a new transaction in transactions array" do
-      subject.deposit(100)
-      expect(subject.transactions[0].details).to eq({:date=>"07/03/2017", :credit=>100, :debit=>nil, :balance=>100})
+    it "chnages an account balance" do
+      expect {subject.deposit(100)}.to change{subject.balance}.by(100)
     end
 
-    it "increases an account balance" do
-      expect {subject.deposit(100)}.to change{subject.balance}.by(100)
+    it "stores a new transaction in transactions array" do
+      subject.deposit(100)
+      expect(subject.transactions[0]).to eq({:date=>"07/03/2017", :credit=>100, :debit=>nil, :balance=>100})
+    end
+
+  end
+
+  describe "#withdraw" do
+
+    it "changes an account balance" do
+      subject.deposit(100)
+      expect {subject.withdraw(50)}.to change{subject.balance}.by(-50)
+    end
+
+    it "stores a new transaction in transactions array" do
+      subject.deposit(100)
+      subject.withdraw(50)
+      expect(subject.transactions[1]).to eq({:date=>"07/03/2017", :credit=>nil, :debit=>50, :balance=>50})
+    end
+
+    it 'raises an error if trying to withdraw more than the balance' do
+      message = "You cannot withdraw a higher amount than your current balance."
+      expect { subject.withdraw(10) }.to raise_error message
     end
   end
 
