@@ -1,17 +1,20 @@
 require 'transaction'
 
 describe Transaction do
+  subject(:transaction) {described_class.new(credit: 50, debit: 0, balance: 50)}
 
   describe "::new" do
-    subject { Transaction.new(date, amount) }
-
-    let(:amount) { 500 }
-    let(:date) {"12/10/2016"}
-
-    it 'is initialized with given amount and date' do
-      transaction = Transaction.new(date, amount)
-      expect(subject.amount).to eq(amount)
-      expect(subject.date).to eq(date)
+    it 'is initialized with a certain credit amount' do
+      expect(transaction.details[:credit]).to eq(50)
+    end
+    it 'is initialized with a certain debit amount' do
+      expect(transaction.details[:debit]).to eq 0
+    end
+    it 'is initialized with a certain date' do
+      expect(transaction.details[:date]).to eq Time.new.strftime('%d/%m/%Y')
+    end
+    it 'is initialized with a certain balance' do
+      expect(transaction.details[:balance]).to eq 50
     end
   end
 end

@@ -2,17 +2,13 @@ require_relative "account"
 
 class Transaction
 
-  attr_reader :amount, :date, :type
-
-  def initialize(date, amount)
-    @amount = amount
-    @date = date
-  end
-
-  private
-
-  def credit_or_debit?(amount)
-    amount < 0 ? type = :debit : type = :credit
+  attr_reader :details
+  
+  def initialize(credit: nil, debit: nil, balance:)
+    @details = {date: Time.new.strftime('%d/%m/%Y'),
+    credit: credit,
+    debit: debit,
+    balance: balance}
   end
 
 end
