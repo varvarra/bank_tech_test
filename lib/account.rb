@@ -7,14 +7,14 @@ class Account
     @transactions = []
   end
 
-  def deposit(amount, date)
-    @transactions << Transaction.new(date, amount)
+  def deposit(amount)
     @balance += amount
+    @transactions << Transaction.new(credit: amount, debit: nil, balance: @balance)
   end
 
-  def withdraw(amount, date)
-    @transactions << Transaction.new(date, amount*(-1))
+  def withdraw(amount)
     @balance -= amount
+    @transactions << Transaction.new(credit: nil, debit: -amount, balance: @balance)
   end
 
 

@@ -1,9 +1,9 @@
 require 'account'
 
 describe Account do
+  subject { Account.new }
 
   describe "::new" do
-    subject { Account.new }
 
       it 'has a balance of zero at initialization' do
         expect(subject.balance).to eq(0)
@@ -15,21 +15,14 @@ describe Account do
   end
 
   describe "#deposit" do
-    let(:amount) { 500 }
-    let(:date) {"12/10/2016"}
 
-    it "stores a new transaction" do
-      # expect(transaction_class).to receive(:new).with(date, amount)
-      account = Account.new
-      account.deposit(amount, date)
-      expect(account.transactions[0].amount).to eq(amount)
+    it "stores a new transaction in transactions array" do
+      subject.deposit(100)
+      expect(subject.transactions[0].details).to eq({:date=>"07/03/2017", :credit=>100, :debit=>nil, :balance=>100})
     end
 
     it "increases an account balance" do
-      account = Account.new
-      account.deposit(amount, date)
-      p date
-      expect {account.deposit(amount, date)}.to change{account.balance}.by(amount)
+      expect {subject.deposit(100)}.to change{subject.balance}.by(100)
     end
   end
 
