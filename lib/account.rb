@@ -23,7 +23,7 @@ class Account
   end
 
   def show_statement
-    printer.print_statement(transactions)
+    @printer.print_statement(transactions)
   end
 
 
