@@ -1,7 +1,6 @@
 require 'account'
 
 describe Account do
-  # let(:transaction_class) { double(:transaction_class)}
 
   describe "::new" do
     subject { Account.new }
@@ -17,7 +16,7 @@ describe Account do
 
   describe "#deposit" do
     let(:amount) { 500 }
-    let(:date) {12/10/2016}
+    let(:date) {"12/10/2016"}
 
     it "stores a new transaction" do
       # expect(transaction_class).to receive(:new).with(date, amount)
@@ -29,6 +28,7 @@ describe Account do
     it "increases an account balance" do
       account = Account.new
       account.deposit(amount, date)
+      p date
       expect {account.deposit(amount, date)}.to change{account.balance}.by(amount)
     end
   end
