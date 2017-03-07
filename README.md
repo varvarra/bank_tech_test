@@ -22,14 +22,23 @@ As a bank client
 To see the history of my transactions
 I want a printed statement showing the credit, debit and balance for each day.
 ```
+
+```
+As a bank client
+To see the history of my transactions
+I want to see a bank statement with all transactions in reverse chronological order
+```
+
 ## Domain Model
 
-Client         Account            Transaction
+Client         Account                     Transaction       StatementPrinter
 
-  ----deposit--->     -----create credit---->
+    ----deposit--->     -----create credit tr. ---->
 
-  ----deposit--->     -----create debit---->
-  
+    ----withdrawal->     -----create debit tr.---->
+                  ------------------------------------------print---->
+                                                        list of transactions
+
 ### Acceptance Criteria
 
 Producing a bank statement for a bank client, like below:
