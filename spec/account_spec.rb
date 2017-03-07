@@ -46,4 +46,8 @@ describe Account do
     end
   end
 
+    describe "#show_statement" do
+      it {is_expected.to respond_to(:show_statement)}
+    end
+
 end
