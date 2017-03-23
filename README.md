@@ -2,6 +2,22 @@
 
 This project is my solution for a Bank tech test. It should be demonstrative of my OO design and TDD skills.
 
+# How to run:
+
+```
+$ git clone https://github.com/varvarra/bank_tech_test.git
+$ cd bank_tech_test
+$ bundle
+$ pry
+```
+
+Testing:
+
+```
+$ rspec
+
+```  
+
 
 ## User Stories
 
@@ -31,11 +47,11 @@ I want to see a bank statement with all transactions in reverse chronological or
 
 ## Domain Model
 
-Client         Account                     Transaction       StatementPrinter
+Client |        Account            |   Transaction    |StatementPrinter
+-----------------------------------------------------------------------------
+    ----deposit--->  |   -----create credit tr. ---->
 
-    ----deposit--->     -----create credit tr. ---->
-
-    ----withdrawal->     -----create debit tr.---->
+    ----withdrawal->  |   -----create debit tr.---->
                   ------------------------------------------print---->
                                                         list of transactions
 
@@ -48,3 +64,19 @@ Producing a bank statement for a bank client, like below:
 |14/01/2012 |        | 500.00  | 2500.00|
 |13/01/2012 | 2000.00|         | 3000.00|
 |10/01/2012 | 1000.00|         | 1000.00|
+
+## Installation and Usage
+
+To install the program, complete the following:
+
+ - Clone this repo
+ - Run ``cd bank-tech-test``
+ - Run ``bundle install``
+
+To run the tests:
+
+ - Run ``rspec``
+
+To use the program:
+
+ - ``Run pry``
