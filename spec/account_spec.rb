@@ -3,6 +3,8 @@ require 'account'
 describe Account do
   subject { Account.new }
 
+  let (:date) {Time.new.strftime('%d/%m/%Y')}
+
   describe "::new" do
 
       it 'has a balance of zero at initialization' do
@@ -22,7 +24,7 @@ describe Account do
 
     it "stores a new transaction in transactions array" do
       subject.deposit(100)
-      expect(subject.transactions[0]).to eq({:date=>"07/03/2017", :credit=>100, :debit=>nil, :balance=>100})
+      expect(subject.transactions[0]).to eq({:date=>date, :credit=>100, :debit=>nil, :balance=>100})
     end
 
   end
@@ -37,7 +39,7 @@ describe Account do
     it "stores a new transaction in transactions array" do
       subject.deposit(100)
       subject.withdraw(50)
-      expect(subject.transactions[1]).to eq({:date=>"07/03/2017", :credit=>nil, :debit=>50, :balance=>50})
+      expect(subject.transactions[1]).to eq({:date=>date, :credit=>nil, :debit=>50, :balance=>50})
     end
 
     it 'raises an error if trying to withdraw more than the balance' do

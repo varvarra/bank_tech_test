@@ -2,7 +2,7 @@ require 'printer'
 
 describe Printer do
   subject(:printer) {described_class.new}
-  let(:transactions) {[{date:"07/03/2017", credit: 0, debit: 1000, balance: 1000}]}
+  let(:transactions) {[{date: "07/03/2017", credit: 0, debit: 1000, balance: 1000}]}
 
   describe "#print_statement" do
     it "should correctly print a formatted string" do
