@@ -2,21 +2,21 @@
 
 This project is my solution for a Bank tech test. It should be demonstrative of my OO design and TDD skills.
 
-# How to run:
+## Installation and Usage
 
-```
-$ git clone https://github.com/varvarra/bank_tech_test.git
-$ cd bank_tech_test
-$ bundle
-$ pry
-```
+To install the program, complete the following:
 
-Testing:
+ - Clone this repo `git clone https://github.com/varvarra/bank_tech_test.git ``
+ - Run ``cd bank-tech-test``
+ - Run ``bundle install``
 
-```
-$ rspec
+To run the tests:
 
-```  
+ - Run ``rspec``
+
+To use the program:
+
+ - ``Run pry``
 
 
 ## User Stories
@@ -45,16 +45,6 @@ To see the history of my transactions
 I want to see a bank statement with all transactions in reverse chronological order
 ```
 
-## Domain Model
-
-Client |        Account            |   Transaction    |StatementPrinter
------------------------------------------------------------------------------
-    ----deposit--->  |   -----create credit tr. ---->
-
-    ----withdrawal->  |   -----create debit tr.---->
-                  ------------------------------------------print---->
-                                                        list of transactions
-
 ### Acceptance Criteria
 
 Producing a bank statement for a bank client, like below:
@@ -65,18 +55,12 @@ Producing a bank statement for a bank client, like below:
 |13/01/2012 | 2000.00|         | 3000.00|
 |10/01/2012 | 1000.00|         | 1000.00|
 
-## Installation and Usage
+## Domain Model
 
-To install the program, complete the following:
+Client |        Account            |   Transaction    |StatementPrinter
+-----------------------------------------------------------------------------
+    ----deposit--->  |   -----create credit tr. ---->
 
- - Clone this repo
- - Run ``cd bank-tech-test``
- - Run ``bundle install``
-
-To run the tests:
-
- - Run ``rspec``
-
-To use the program:
-
- - ``Run pry``
+    ----withdrawal->  |   -----create debit tr.---->
+                  ------------------------------------------print---->
+                                                        list of transactions
